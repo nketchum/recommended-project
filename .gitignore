@@ -1,0 +1,15 @@
+# Hidden OS files
+.DS_Store
+Thumbs.db
+
+# Web directory
+/web/
+
+#  Utilities
+/drush/contrib/
+
+# Libraries
+/vendor/
+
+# Files
+/private/
