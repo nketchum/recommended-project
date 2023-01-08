@@ -7,9 +7,11 @@ Thumbs.db
 
 # Ignore libraries
 /vendor/
+node_modules
 
 # Ignore files
 /private/
+!/private/.gitignore
 
 # Ignore the web dir
 /web/*
@@ -18,13 +20,16 @@ Thumbs.db
 !/web/modules
 /web/modules/*
 !/web/modules/custom
+!/web/modules/custom/*
 
 # Except profiles
 !/web/profiles
 /web/profiles/*
 !/web/profiles/custom
+!/web/profiles/custom/*
 
 # Except themes
 !/web/themes
 /web/themes/*
 !/web/themes/custom
+!/web/themes/custom/*
