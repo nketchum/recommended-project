@@ -12,6 +12,10 @@
 .DS_Store
 Thumbs.db
 
+# Pantheon tracks settings.php by default. We DON'T want to do
+# that as projects could be placed on other platforms.
+/web/sites/*/settings.php
+
 # Ignore private files outside the webroot but keep the dir.
 /private/
 !/private/.gitignore
@@ -121,6 +125,7 @@ upstream/web/
 /web/.ht.router.php
 /web/.htaccess
 /web/INSTALL.txt
+/web/README.md
 /web/README.txt
 /web/autoload.php
 /web/example.gitignore
