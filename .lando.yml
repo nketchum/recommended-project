@@ -1,0 +1,4 @@
+name: recommended-project
+recipe: drupal10
+config:
+  webroot: web
