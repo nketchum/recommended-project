@@ -2,14 +2,29 @@
 .DS_Store
 Thumbs.db
 
-# Web directory
-/web/
-
 #  Utilities
 /drush/contrib/
 
-# Libraries
+# Ignore libraries
 /vendor/
 
-# Files
+# Ignore files
 /private/
+
+# Ignore the web dir
+/web/*
+
+# Except modules
+!/web/modules
+/web/modules/*
+!/web/modules/custom
+
+# Except profiles
+!/web/profiles
+/web/profiles/*
+!/web/profiles/custom
+
+# Except themes
+!/web/themes
+/web/themes/*
+!/web/themes/custom
