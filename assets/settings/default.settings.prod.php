@@ -30,17 +30,34 @@ $settings['hash_salt'] = '';
 // Misc
 $settings['extension_discovery_scan_tests'] = FALSE;
 
-// Database
-$databases['default']['default'] = array (
-  'database' => '',
-  'username' => '',
-  'password' => '',
-  'prefix' => '',
-  'host' => '',
-  'port' => '',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
-
-// Hosts
-$settings['trusted_host_patterns'] = [];
+/**
+ * Database settings:
+ *
+ * The $databases array is normally placed in the sitewide settings.php
+ * file. However, it is useful to move the database settings into
+ * the environment-specific settings files based on the current
+ * environment.
+ *
+ * After site installation, the installer will place the database array
+ * at the bottom of the sitewide settings.php file. If you decide to use
+ * different environments that use different database configurations,
+ * cut and paste the database array, with modifications, into the
+ * environment-specific settings files and activate those settings
+ * by deleting the "default." in the filename.
+ *
+ * Here is a useful reference of how the database array is structured
+ * and the information it contains:
+ *
+ * @code
+ * $databases['default']['default'] = [
+ *   'database' => 'databasename',
+ *   'username' => 'sqlusername',
+ *   'password' => 'sqlpassword',
+ *   'host' => 'localhost',
+ *   'port' => '3306',
+ *   'driver' => 'mysql',
+ *   'prefix' => '',
+ *   'collation' => 'utf8mb4_general_ci',
+ * ];
+ * @endcode
+ */
