@@ -60,15 +60,15 @@
             "overwrite": true,
             "file-mapping": {
                 "[web-root]/sites/default/default.services.yml": "assets/services/services.default.yml",
-                "[web-root]/sites/default/default.services.dev.yml": "assets/services/services.dev.yml",
-                "[web-root]/sites/default/default.services.local.yml": "assets/services/services.local.yml",
-                "[web-root]/sites/default/default.services.prod.yml": "assets/services/services.prod.yml",
-                "[web-root]/sites/default/default.services.stage.yml": "assets/services/services.stage.yml",
+                "[web-root]/sites/default/services.dev.yml": "assets/services/services.dev.yml",
+                "[web-root]/sites/default/services.local.yml": "assets/services/services.local.yml",
+                "[web-root]/sites/default/services.prod.yml": "assets/services/services.prod.yml",
+                "[web-root]/sites/default/services.stage.yml": "assets/services/services.stage.yml",
                 "[web-root]/sites/default/default.settings.php": "assets/settings/settings.default.php",
-                "[web-root]/sites/default/default.settings.dev.php": "assets/settings/settings.dev.php",
-                "[web-root]/sites/default/default.settings.local.php": "assets/settings/settings.local.php",
-                "[web-root]/sites/default/default.settings.prod.php": "assets/settings/settings.prod.php",
-                "[web-root]/sites/default/default.settings.stage.php": "assets/settings/settings.stage.php"
+                "[web-root]/sites/default/settings.dev.php": "assets/settings/settings.dev.php",
+                "[web-root]/sites/default/settings.local.php": "assets/settings/settings.local.php",
+                "[web-root]/sites/default/settings.prod.php": "assets/settings/settings.prod.php",
+                "[web-root]/sites/default/settings.stage.php": "assets/settings/settings.stage.php"
             }
         },
         "installer-paths": {
