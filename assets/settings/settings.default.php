@@ -1,9 +1,11 @@
 <?php
 
+// Databases.
+$databases = [];
+
 // Default settings.
 $settings['config_sync_directory'] = '../config/sync';
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
-$databases['default']['default'] = [];
 $settings['entity_update_backup'] = TRUE;
 $settings['entity_update_batch_size'] = 50;
 $settings['file_scan_ignore_directories'] = ['node_modules', 'bower_components'];
