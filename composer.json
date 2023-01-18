@@ -26,7 +26,8 @@
     "require-dev": {
         "drupal/core-dev": "^10.1",
         "drupal/devel": "^5.0",
-        "drush/drush": "^11.4"
+        "drush/drush": "^11.4",
+        "kint-php/kint": "^5.0"
     },
     "conflict": {
         "drupal/drupal": "*"
