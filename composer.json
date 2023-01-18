@@ -16,9 +16,13 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "drupal/admin_toolbar": "^3.3",
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-project-message": "^10.1",
-        "drupal/core-recommended": "^10.1"
+        "drupal/core-recommended": "^10.1",
+        "drupal/devel": "^5.0",
+        "drupal/pathauto" :"^1.11",
+        "drush/drush": "^11.4"
     },
     "require-dev": {
         "drupal/core-dev": "^10.1"
@@ -42,6 +46,19 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "overwrite": true,
+            "file-mapping": {
+                "[web-root]/sites/default/services.default.yml": "assets/services/services.yml",
+                "[web-root]/sites/default/services.dev.yml": "assets/services/services.dev.yml",
+                "[web-root]/sites/default/services.local.yml": "assets/services/services.local.yml",
+                "[web-root]/sites/default/services.prod.yml": "assets/services/services.prod.yml",
+                "[web-root]/sites/default/services.stage.yml": "assets/services/services.stage.yml",
+                "[web-root]/sites/default/settings.default.php": "assets/settings/settings.php",
+                "[web-root]/sites/default/settings.dev.php": "assets/settings/settings.dev.php",
+                "[web-root]/sites/default/settings.local.php": "assets/settings/settings.local.php",
+                "[web-root]/sites/default/settings.prod.php": "assets/settings/settings.prod.php",
+                "[web-root]/sites/default/settings.stage.php": "assets/settings/settings.stage.php"
             }
         },
         "installer-paths": {
@@ -60,16 +77,12 @@
             "post-create-project-cmd-message": [
                 "<bg=blue;fg=white>                                                         </>",
                 "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
-                "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
+                "<bg=blue;fg=white>  from the nketchum/recommended-project template!        </>",
                 "<bg=blue;fg=white>                                                         </>",
                 "",
                 "<bg=yellow;fg=black>Next steps</>:",
 
                 "  * Install the site: https://www.drupal.org/docs/installing-drupal",
-                "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
-                "  * Get support: https://www.drupal.org/support",
-                "  * Get involved with the Drupal community:",
-                "      https://www.drupal.org/getting-involved",
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]

@@ -14,11 +14,12 @@ Thumbs.db
 
 # Pantheon tracks settings.php by default. We DON'T want to do
 # that as projects could be placed on other platforms.
-/web/sites/*/settings.php
+web/sites/*/settings.php
+web/sites/*/settings.stage.php
 
 # Ignore private files outside the webroot but keep the dir.
-/private/
-!/private/.gitignore
+private/
+!private/.gitignore
 # ------------------------------------------------------------------
 
 # This file contains .gitignore rules that are often used with Drupal projects.
