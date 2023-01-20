@@ -6,6 +6,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 $settings['entity_update_backup'] = TRUE;
 $settings['entity_update_batch_size'] = 50;
 $settings['file_scan_ignore_directories'] = ['node_modules', 'bower_components'];
+$settings['file_private_path'] = '../private';
 $settings['hash_salt'] = '';
 $settings['maintenance_theme'] = 'claro';
 $settings['migrate_node_migrate_type_classic'] = FALSE;
