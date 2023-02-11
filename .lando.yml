@@ -1,4 +1,53 @@
 name: recommended-project
-recipe: drupal10
+recipe: lamp
+composer_version: 2.2
 config:
+  php: 8.1
   webroot: web
+  xdebug: true
+  config:
+    php: .lando/php.ini
+services:
+  appserver:
+    ssl: true
+    build_as_root:
+      - apt-get update -y
+      - apt-get install vim -y
+      # - apt-get install nodejs -y
+      # - apt-get install npm -y
+      # - npm install gulp-cli --global
+      # - composer install --dev
+  database:
+    type: mysql:5.7
+    creds:
+      user: lamp
+      password: lamp
+      database: lamp
+  mailhog:
+    type: mailhog
+    portforward: false
+    hogfrom:
+      - appserver
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+  node:
+    type: node
+    globals:
+      gulp-cli: latest
+      bower: latest
+      webpack: latest
+      npm: latest
+tooling:
+  npm:
+    service: node
+  node:
+    service: appserverw
+  gulp:
+    service: appserver
+  yarn:
+    service: appserver
+  drush:
+    service: appserver
+    cmd: drush
