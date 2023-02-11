@@ -20,13 +20,13 @@
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-project-message": "^10.1",
         "drupal/core-recommended": "^10.1",
-        "drupal/pathauto" :"^1.11",
+        "drupal/pathauto": "^1.11",
+        "drush/drush": "^11.0",
         "vlucas/phpdotenv": "^5.4"
     },
     "require-dev": {
         "drupal/core-dev": "^10.1",
         "drupal/devel": "^5.0",
-        "drush/drush": "^11.4",
         "kint-php/kint": "^5.0"
     },
     "conflict": {
@@ -60,16 +60,16 @@
             },
             "overwrite": true,
             "file-mapping": {
-                "[web-root]/sites/default/default.services.yml": "assets/services/default.services.yml",
-                "[web-root]/sites/default/default.services.dev.yml": "assets/services/default.services.dev.yml",
-                "[web-root]/sites/default/default.services.local.yml": "assets/services/default.services.local.yml",
-                "[web-root]/sites/default/default.services.prod.yml": "assets/services/default.services.prod.yml",
-                "[web-root]/sites/default/default.services.stage.yml": "assets/services/default.services.stage.yml",
-                "[web-root]/sites/default/default.settings.php": "assets/settings/default.settings.php",
-                "[web-root]/sites/default/default.settings.dev.php": "assets/settings/default.settings.dev.php",
-                "[web-root]/sites/default/default.settings.local.php": "assets/settings/default.settings.local.php",
-                "[web-root]/sites/default/default.settings.prod.php": "assets/settings/default.settings.prod.php",
-                "[web-root]/sites/default/default.settings.stage.php": "assets/settings/default.settings.stage.php"
+                "[web-root]/sites/default/default.services.yml": ".lando/assets/services/default.services.yml",
+                "[web-root]/sites/default/default.services.dev.yml": ".lando/assets/services/default.services.dev.yml",
+                "[web-root]/sites/default/default.services.local.yml": ".lando/assets/services/default.services.local.yml",
+                "[web-root]/sites/default/default.services.prod.yml": ".lando/assets/services/default.services.prod.yml",
+                "[web-root]/sites/default/default.services.stage.yml": ".lando/assets/services/default.services.stage.yml",
+                "[web-root]/sites/default/default.settings.php": ".lando/assets/settings/default.settings.php",
+                "[web-root]/sites/default/default.settings.dev.php": ".lando/assets/settings/default.settings.dev.php",
+                "[web-root]/sites/default/default.settings.local.php": ".lando/assets/settings/default.settings.local.php",
+                "[web-root]/sites/default/default.settings.prod.php": ".lando/assets/settings/default.settings.prod.php",
+                "[web-root]/sites/default/default.settings.stage.php": ".lando/assets/settings/default.settings.stage.php"
             }
         },
         "installer-paths": {

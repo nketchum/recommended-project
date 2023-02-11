@@ -2,21 +2,18 @@ name: recommended-project
 recipe: lamp
 composer_version: 2.2
 config:
-  php: 8.1
   webroot: web
-  xdebug: true
-  config:
-    php: .lando/php.ini
 services:
   appserver:
+    type: php:8.1
+    xdebug: false
+    config:
+      php: .lando/php.ini
     ssl: true
     build_as_root:
       - apt-get update -y
       - apt-get install vim -y
-      # - apt-get install nodejs -y
-      # - apt-get install npm -y
-      # - npm install gulp-cli --global
-      # - composer install --dev
+      - composer install --dev
   database:
     type: mysql:5.7
     creds:
@@ -34,20 +31,22 @@ services:
       - database
   node:
     type: node
+    build:
+      - npm install
     globals:
       gulp-cli: latest
-      bower: latest
       webpack: latest
       npm: latest
 tooling:
   npm:
     service: node
   node:
-    service: appserverw
+    service: appserver
   gulp:
-    service: appserver
+    service: node
+  webpack:
+    service: node
   yarn:
-    service: appserver
+    service: node
   drush:
     service: appserver
-    cmd: drush
