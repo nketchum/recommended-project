@@ -27,7 +27,7 @@ services:
     globals:
       gulp-cli: latest
       webpack: latest
-      npm: latest
+      npm: latestg
 tooling:
   npm:
     service: node
