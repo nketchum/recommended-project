@@ -1,4 +1,43 @@
-name: recommended-project
+name: drupal10-nktest
 recipe: drupal10
 config:
+  php: '8.1'
+  composer_version: '2.2.12'
+  via: apache:2.4
   webroot: web
+  database: mysql:5.7
+  drush: true
+  xdebug: false
+  config:
+    php: .lando/php.ini
+services:
+  mailhog:
+    type: mailhog
+    portforward: false
+    hogfrom:
+      - appserver
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+  node:
+    type: node
+    build:
+      - npm install
+    globals:
+      gulp-cli: latest
+      webpack: latest
+      npm: latest
+tooling:
+  npm:
+    service: node
+  node:
+    service: appserver
+  gulp:
+    service: node
+  webpack:
+    service: node
+  yarn:
+    service: node
+  drush:
+    service: appserver
