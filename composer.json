@@ -45,6 +45,9 @@
         "preferred-install": {
             "drupal/core": "dist"
         },
+        "process": {
+            "process-timeout": 0
+        },
         "sort-packages": true
     },
     "autoload": {
