@@ -1,14 +1,23 @@
-# Edit or remove this file as needed.
-# Docs at https://github.com/drush-ops/drush/blob/master/examples/example.site.yml
+prod:
+  host: nkwebdev.com
+  user: root
+  root: /var/www/recommended-project.com/web
+  uri: http://nkwebdev.com
 
-#prod:
-#  host: prod.domain.com
-#  user: www-admin
-#  root: /path/to/drupal
-#  uri: http://www.example.com
-#
-#stage:
-#  host: stage.domain.com
-#  user: www-admin
-#  root: /path/to/drupal
-#  uri: http://stage.example.com
+stage:
+  host: recommended-project-d10.lndo.site
+  user: www-data
+  root: /Users/nketchum/Sites/recommended-project/web
+  uri: https://recommended-project-d10.lndo.site
+
+dev:
+  host: recommended-project-d10.lndo.site
+  user: www-data
+  root: /Users/nketchum/Sites/recommended-project/web
+  uri: https://recommended-project-d10.lndo.site
+
+local:
+  host: recommended-project-d10.lndo.site
+  user: www-data
+  root: /Users/nketchum/Sites/recommended-project/web
+  uri: https://recommended-project-d10.lndo.site

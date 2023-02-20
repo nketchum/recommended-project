@@ -1,0 +1,23 @@
+# prod:
+#   host: prod.com
+#   user: www-data
+#   root: /var/www/app/web
+#   uri: https://prod.com
+
+# stage:
+#   host: stage.com
+#   user: www-data
+#   root: /var/www/app/web
+#   uri: https://stage.com
+
+# dev:
+#   host: dev.com
+#   user: www-data
+#   root: /var/www/app/web
+#   uri: https://dev.com
+
+# local:
+#   host: local.com
+#   user: www-data
+#   root: /var/www/app/web
+#   uri: https://local.com

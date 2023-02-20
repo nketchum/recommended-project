@@ -1,6 +1,19 @@
-#
-# A Drush configuration file
-#
-# Docs at https://github.com/drush-ops/drush/blob/master/examples/example.drush.yml
-#
-# Edit or remove this file as needed.
+# drush sql:sync @prod @self (exclude files/php because that doesn't rsync)
+# drush rsync @prod:%files @self:%files --exclude-paths=php
+
+drush:
+  include:
+    - '${env.HOME}/drush/Commands'
+  paths:
+    config:
+      # - ${env.HOME}/drush/config/drush.yml
+    alias-path:
+      - '${env.HOME}/drush/sites'
+options:
+  uri: 'https://recommended-project-d10.lndo.site/'
+command:
+  sql:
+    dump:
+      options:
+ssh:
+  options: '-o PasswordAuthentication=no'
