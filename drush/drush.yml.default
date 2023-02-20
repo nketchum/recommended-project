@@ -1,5 +1,5 @@
-# drush sql:sync @prod @self (exclude files/php because that doesn't rsync)
-# drush rsync @prod:%files @self:%files --exclude-paths=php
+# drush sql:sync @prod @self
+# drush rsync @prod:%files @self:%files --exclude-paths=php    (exclude files/php because that doesn't rsync)
 
 # drush:
 #   include:
