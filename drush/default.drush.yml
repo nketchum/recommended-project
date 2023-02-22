@@ -5,9 +5,15 @@ drush:
   include:
     - '${env.HOME}/drush/Commands'
   paths:
+    config:
+      - ${env.HOME}/drush/config/drush.yml
     alias-path:
       - '${env.HOME}/drush/sites'
 options:
-  uri: 'https://recommended-project-d10.lndo.site/'
+  uri: 'https://url-to-generate-links.com'
+command:
+  sql:
+    dump:
+      options:
 ssh:
   options: '-o PasswordAuthentication=no'
