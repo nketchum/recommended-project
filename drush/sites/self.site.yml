@@ -5,10 +5,10 @@ prod:
   uri:  http://uri.tld
 
 stage:
-  host: hostname.tld
-  user: myuser
-  root: /path/to/webroot
-  uri:  http://uri.tld
+  host: nketchum.com
+  user: nketchum
+  root: /var/www/recommended-project/web
+  uri:  https://recommended-project.nketchum.com
 
 dev:
   host: hostname.tld

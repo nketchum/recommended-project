@@ -14,14 +14,17 @@ config:
 services:
   appserver:
     build_as_root:
-      - composer install
+      # - composer install --ignore-platform-reqs
       - chmod -R 777 /app/private
       - chmod -R 777 /app/web/sites/default/files
+      - apt-get update
+      - apt-get install -y vim
     overrides:
       volumes:
-        # Change "recommended-project" to the website/project/directory name.
-        - "/Volumes/T7/Sites/recommended-project-d10/public:/app/web/sites/default/files"
-        - "/Volumes/T7/Sites/recommended-project-d10/private:/app/private"
+        # Change "DRIVE" to the drive name and 
+        # change "PROJECT" to the website/project/directory name.
+        - "/Volumes/SSD01/Sites/PROJECT/public:/app/web/sites/default/files"
+        - "/Volumes/SSD01/Sites/PROJECT/private:/app/private"
   mailhog:
     type: mailhog
     portforward: false
