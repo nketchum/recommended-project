@@ -17,6 +17,8 @@ services:
       - composer install
       - chmod -R 777 /app/private
       - chmod -R 777 /app/web/sites/default/files
+      - apt-get update
+      - apt-get install -y vim
     overrides:
       volumes:
         # Change "recommended-project" to the website/project/directory name.
