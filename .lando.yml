@@ -17,14 +17,17 @@ services:
       # - composer install --ignore-platform-reqs
       - chmod -R 777 /app/private
       - chmod -R 777 /app/web/sites/default/files
+      # vim
       - apt-get update
       - apt-get install -y vim
     overrides:
       volumes:
         # Change "DRIVE" to the drive name and 
         # change "PROJECT" to the website/project/directory name.
-        - "/Volumes/SSD01/Sites/PROJECT/public:/app/web/sites/default/files"
-        - "/Volumes/SSD01/Sites/PROJECT/private:/app/private"
+        # e.g. - "/Volumes/MSD01/Sites/recommended-project/public:/app/web/sites/default/files"
+        # e.g. - "/Volumes/MSD01/Sites/recommended-project/private:/app/private"
+        - "/Volumes/DRIVE/PATH_TO_PRIVATE_FILES:/app/web/sites/default/files"
+        - "/Volumes/DRIVE/PATH_TO_PRIVATE_FILES:/app/private"
   mailhog:
     type: mailhog
     portforward: false
