@@ -98,7 +98,7 @@ upstream/modules/
 upstream/profiles/
 upstream/sites/
 upstream/themes/
-upstream/web/g
+upstream/web/
 
 
 # Generally you should only ignore the root vendor directory. It's important
