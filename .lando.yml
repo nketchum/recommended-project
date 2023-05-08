@@ -1,5 +1,5 @@
 # Change "recommended-project" to the website/project/directory name.
-name: recommended-project-d9
+name: mbgna
 recipe: drupal9
 config:
   php: '8.1'
@@ -14,7 +14,7 @@ config:
 services:
   appserver:
     build_as_root:
-      # - composer install --ignore-platform-reqs
+      - composer install --ignore-platform-reqs
       - chmod -R 777 /app/private
       - chmod -R 777 /app/web/sites/default/files
       # vim
@@ -22,12 +22,8 @@ services:
       - apt-get install -y vim
     overrides:
       volumes:
-        # Change "DRIVE" to the drive name and 
-        # change "PROJECT" to the website/project/directory name.
-        # e.g. - "/Volumes/MSD01/Sites/recommended-project/public:/app/web/sites/default/files"
-        # e.g. - "/Volumes/MSD01/Sites/recommended-project/private:/app/private"
-        - "/Volumes/DRIVE/PATH_TO_PRIVATE_FILES:/app/web/sites/default/files"
-        - "/Volumes/DRIVE/PATH_TO_PRIVATE_FILES:/app/private"
+        - "/Volumes/MSD01/Sites/mbgna/mbgna.umich.edu/public:/app/web/sites/default/files"
+        - "/Volumes/MSD01/Sites/mbgna/mbgna.umich.edu/private:/app/private"
   mailhog:
     type: mailhog
     portforward: false
