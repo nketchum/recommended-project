@@ -1,56 +1,60 @@
 # Change "recommended-project" to the website/project/directory name.
-name: mbgna
+name: recommended-project-d9
 recipe: drupal9
 config:
-  php: '8.1'
-  composer_version: '2.2.12'
-  via: apache:2.4
-  webroot: web
   database: mysql:5.7
   drush: true
-  xdebug: false
+  composer_version: '2.2.12'
   config:
     php: .lando/php.ini
+  php: '8.1'
+  via: apache:2.4
+  webroot: web
+  xdebug: false
 services:
   appserver:
     build_as_root:
-      - composer install --ignore-platform-reqs
+      - apt-get update -y
+      - apt-get install -y vim
       - chmod -R 777 /app/private
       - chmod -R 777 /app/web/sites/default/files
-      # vim
-      - apt-get update
-      - apt-get install -y vim
+      - composer install --ignore-platform-reqs --dev
     overrides:
       volumes:
-        - "/Volumes/MSD01/Sites/mbgna/mbgna.umich.edu/public:/app/web/sites/default/files"
-        - "/Volumes/MSD01/Sites/mbgna/mbgna.umich.edu/private:/app/private"
+        # Change "DRIVE" to the drive name (MSD01 or SSD01) and 
+        # change "PROJECT" to the website/project/directory name.
+        - "/Volumes/DRIVE/Sites/PROJECT/public:/app/web/sites/default/files"
+        - "/Volumes/DRIVE/Sites/PROJECT/private:/app/private"
   mailhog:
     type: mailhog
-    portforward: false
     hogfrom:
       - appserver
-  pma:
-    type: phpmyadmin
-    hosts:
-      - database
+    portforward: false
   node:
     type: node
     build:
       - npm install
     globals:
+      grunt-cli: latest
       gulp-cli: latest
-      webpack: latest
       npm: latest
+      webpack: latest
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
 tooling:
-  npm:
+  drush:
+    service: appserver
+  grunt:
+    service: node
+  gulp:
     service: node
   node:
     service: appserver
-  gulp:
+  npm:
     service: node
   webpack:
     service: node
   yarn:
     service: node
-  drush:
-    service: appserver

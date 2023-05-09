@@ -1,22 +1,28 @@
 name: recommended-project
 recipe: lamp
 config:
+  database: mysql:5.7
+  drush: true
+  php: '8.1'
+  composer_version: '2.2'
+  config:
+    php: .lando/php.ini
+  via: apache:2.4
   webroot: web
   xdebug: false
-  php: 8.1
-  composer_version: 2
 services:
   appserver:
+    build_as_root:
+      - apt-get update -y
+      - apt-get install nodejs -y
+      - apt-get install npm -y
+      - apt-get install vim -y
+      - npm install grunt-cli --global
+      - npm install gulp-cli --global
+      - composer install --ignore-platform-reqs --dev
     config:
       php: .lando/php.ini
     ssl: true
-    build_as_root:
-      - apt-get update -y
-      - apt-get install vim -y
-      - apt-get install nodejs -y
-      - apt-get install npm -y
-      - npm install gulp-cli --global
-      - composer install --dev
   database:
     type: mysql:5.7
     creds:
@@ -28,6 +34,15 @@ services:
     hogfrom:
       - appserver
     portforward: 1026
+  node:
+    type: node
+    build:
+      - npm install
+    globals:
+      grunt-cli: latest
+      gulp-cli: latest
+      npm: latest
+      webpack: latest
   pma:
     type: phpmyadmin
     hosts:
@@ -36,6 +51,8 @@ tooling:
   npm:
     service: appserver
   node:
+    service: appserver
+  grunt:
     service: appserver
   gulp:
     service: appserver

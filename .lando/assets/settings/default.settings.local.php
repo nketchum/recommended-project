@@ -25,7 +25,6 @@ $settings['skip_permissions_hardening'] = TRUE;
 
 // Services
 $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/services.local.yml';
-$settings['hash_salt'] = 'DEVELOPMENT';
 
 // Misc
 $settings['extension_discovery_scan_tests'] = TRUE;
