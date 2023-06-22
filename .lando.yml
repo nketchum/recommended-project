@@ -1,12 +1,12 @@
-# Change "recommended-project" to the website/project/directory name.
-name: recommended-project-d9
+# Change "PROJECT" to the project name.
+name: PROJECT
 recipe: drupal9
 config:
-  database: mysql:5.7
-  drush: true
   composer_version: '2.2.12'
   config:
     php: .lando/php.ini
+  database: mysql:5.7
+  drush: true
   php: '8.1'
   via: apache:2.4
   webroot: web
@@ -22,7 +22,7 @@ services:
     overrides:
       volumes:
         # Change "DRIVE" to the drive name (MSD01 or SSD01) and 
-        # change "PROJECT" to the website/project/directory name.
+        # change "PROJECT" to the project name.
         - "/Volumes/DRIVE/Sites/PROJECT/public:/app/web/sites/default/files"
         - "/Volumes/DRIVE/Sites/PROJECT/private:/app/private"
   mailhog:

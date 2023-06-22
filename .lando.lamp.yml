@@ -1,12 +1,13 @@
-name: recommended-project
+# Change "PROJECT" to the project name.
+name: PROJECT
 recipe: lamp
 config:
-  database: mysql:5.7
-  drush: true
-  php: '8.1'
   composer_version: '2.2'
   config:
     php: .lando/php.ini
+  database: mysql:5.7
+  drush: true
+  php: '8.1'
   via: apache:2.4
   webroot: web
   xdebug: false
@@ -14,17 +15,22 @@ services:
   appserver:
     build_as_root:
       - apt-get update -y
+      - apt-get install -y vim
       - apt-get install nodejs -y
       - apt-get install npm -y
       - apt-get install vim -y
       - npm install grunt-cli --global
       - npm install gulp-cli --global
+      - chmod -R 777 /app/private
+      - chmod -R 777 /app/web/sites/default/files
       - composer install --ignore-platform-reqs --dev
-    config:
-      php: .lando/php.ini
-    ssl: true
+    overrides:
+      volumes:
+        # Change "DRIVE" to the drive name (MSD01 or SSD01) and 
+        # change "PROJECT" to the project name.
+        - "/Volumes/DRIVE/Sites/PROJECT/public:/app/web/sites/default/files"
+        - "/Volumes/DRIVE/Sites/PROJECT/private:/app/private"
   database:
-    type: mysql:5.7
     creds:
       user: drupal
       password: drupal
@@ -48,16 +54,17 @@ services:
     hosts:
       - database
 tooling:
-  npm:
-    service: appserver
-  node:
-    service: appserver
-  grunt:
-    service: appserver
-  gulp:
-    service: appserver
-  yarn:
-    service: appserver
   drush:
     service: appserver
-    cmd: drush
+  grunt:
+    service: node
+  gulp:
+    service: node
+  node:
+    service: appserver
+  npm:
+    service: node
+  webpack:
+    service: node
+  yarn:
+    service: node
