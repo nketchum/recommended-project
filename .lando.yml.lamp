@@ -33,7 +33,7 @@ services:
     type: mailhog
     hogfrom:
       - appserver
-    portforward: 1026
+    portforward: false
   node:
     type: node
     build:
