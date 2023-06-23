@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^9.5",
         "drupal/core-recommended": "^9.5",
         "drush/drush": "^11.0",
@@ -34,9 +35,10 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
-            "phpstan/extension-installer": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "phpstan/extension-installer": true
         },
         "preferred-install": {
             "drupal/core": "dist"
@@ -69,6 +71,9 @@
                 "[web-root]/sites/default/default.settings.stage.php": ".lando/assets/settings/default.settings.stage.php"
             }
         },
+        "patches": {},
+        "patches-ignore": {},
+        "composer-exit-on-patch-failure": false,
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/libraries/{$name}": ["type:drupal-library"],
