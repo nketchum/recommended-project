@@ -1,8 +1,13 @@
 # Change "PROJECT" to the project name.
 name: PROJECT
 recipe: lamp
+excludes: {  } # Remove curly braces if excluding items below.
+  # Uncomment below to exclude particular files and directories.
+  # - node_modules
+  # Uncomment below to re-include particular files and directories.
+  # - "!node_modules/include-me"
 config:
-  composer_version: '2.2'
+  composer_version: '2.2.12'
   config:
     php: .lando/php.ini
   database: mysql:5.7
@@ -14,27 +19,29 @@ config:
 services:
   appserver:
     build_as_root:
+      # - apt-get install nodejs -y
+      # - apt-get install npm -y
+      # - apt-get install vim -y
+      # - npm install grunt-cli --global
+      # - npm install gulp-cli --global
       - apt-get update -y
       - apt-get install -y vim
-      - apt-get install nodejs -y
-      - apt-get install npm -y
-      - apt-get install vim -y
-      - npm install grunt-cli --global
-      - npm install gulp-cli --global
       - chmod -R 777 /app/private
       - chmod -R 777 /app/web/sites/default/files
-      - composer install --ignore-platform-reqs --dev
+      # Composer installation is generally disabled to allow better manual 
+      # control but it can be uncommented to add more automation if desired.
+      # - composer install --ignore-platform-reqs --dev
     overrides:
       volumes:
-        # Change "DRIVE" to the drive name (MSD01 or SSD01) and 
-        # change "PROJECT" to the project name.
+        # Change "DRIVE" to the drive name: MSD01, SSD01, or HDD01, and 
+        # change "PROJECT" to the project machine name.
         - "/Volumes/DRIVE/Sites/PROJECT/public:/app/web/sites/default/files"
         - "/Volumes/DRIVE/Sites/PROJECT/private:/app/private"
   database:
     creds:
-      user: drupal
-      password: drupal
-      database: drupal
+      user: lamp
+      password: lamp
+      database: lamp
   mailhog:
     type: mailhog
     hogfrom:
