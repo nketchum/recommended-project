@@ -16,10 +16,9 @@
     ],
     "require": {
         "composer/installers": "^2.0",
-        "drupal/admin_toolbar": "^3.3",
+        "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-recommended": "^10.1",
-        "drupal/pathauto": "^1.11",
         "drush/drush": "^11.0",
         "vlucas/phpdotenv": "^5.4"
     },
@@ -36,9 +35,11 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
-            "phpstan/extension-installer": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "mglaman/composer-drupal-lenient": true,
+            "phpstan/extension-installer": true
         },
         "preferred-install": {
             "drupal/core": "dist"
@@ -71,6 +72,9 @@
                 "[web-root]/sites/default/default.settings.stage.php": ".lando/assets/settings/default.settings.stage.php"
             }
         },
+        "patches": {},
+        "patches-ignore": {},
+        "composer-exit-on-patch-failure": false,
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/libraries/{$name}": ["type:drupal-library"],
@@ -81,9 +85,6 @@
             "web/modules/custom/{$name}": ["type:drupal-custom-module"],
             "web/profiles/custom/{$name}": ["type:drupal-custom-profile"],
             "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
-        },
-        "patches": {  },
-        "patches-ignore": {  },
-        "composer-exit-on-patch-failure": false
+        }
     }
 }
