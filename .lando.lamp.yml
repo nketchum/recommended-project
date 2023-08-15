@@ -1,16 +1,11 @@
 # Change "PROJECT" to the project name.
 name: PROJECT
-recipe: drupal10
-excludes:
-  - node_modules
-  - vendor
-  - web/core
-  - web/libraries
-  - web/modules/contrib
-  - web/profiles
-  - web/themes/contrib
-  # Change "PROJECT" to the theme machine name.
-  - "web/themes/custom/PROJECT/node_modules"
+recipe: lamp
+excludes: {  } # Remove curly braces if excluding items below.
+  # Uncomment below to exclude particular files and directories.
+  # - node_modules
+  # Uncomment below to re-include particular files and directories.
+  # - "!node_modules/include-me"
 config:
   composer_version: '2.2.12'
   config:
@@ -24,6 +19,11 @@ config:
 services:
   appserver:
     build_as_root:
+      # - apt-get install nodejs -y
+      # - apt-get install npm -y
+      # - apt-get install vim -y
+      # - npm install grunt-cli --global
+      # - npm install gulp-cli --global
       - apt-get update -y
       - apt-get install -y vim
       - chmod -R 777 /app/private
@@ -37,15 +37,16 @@ services:
         # change "PROJECT" to the project machine name.
         - "/Volumes/DRIVE/Sites/PROJECT/public:/app/web/sites/default/files"
         - "/Volumes/DRIVE/Sites/PROJECT/private:/app/private"
+  database:
+    creds:
+      user: lamp
+      password: lamp
+      database: lamp
   mailhog:
     type: mailhog
     hogfrom:
       - appserver
     portforward: false
-  pma:
-    type: phpmyadmin
-    hosts:
-      - database
   node:
     type: node
     build:
@@ -55,7 +56,10 @@ services:
       gulp-cli: latest
       npm: latest
       webpack: latest
-      yarn: latest
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
 tooling:
   drush:
     service: appserver
