@@ -18,7 +18,6 @@
         "composer/installers": "^2.0",
         "drupal/admin_toolbar": "^3.3",
         "drupal/core-composer-scaffold": "^10.1",
-        "drupal/core-project-message": "^10.1",
         "drupal/core-recommended": "^10.1",
         "drupal/pathauto": "^1.11",
         "drush/drush": "^11.0",
@@ -38,7 +37,6 @@
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true,
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true
         },
@@ -64,12 +62,10 @@
             "overwrite": true,
             "file-mapping": {
                 "[web-root]/sites/default/default.services.yml": ".lando/assets/services/default.services.yml",
-                "[web-root]/sites/default/default.services.dev.yml": ".lando/assets/services/default.services.dev.yml",
                 "[web-root]/sites/default/default.services.local.yml": ".lando/assets/services/default.services.local.yml",
                 "[web-root]/sites/default/default.services.prod.yml": ".lando/assets/services/default.services.prod.yml",
                 "[web-root]/sites/default/default.services.stage.yml": ".lando/assets/services/default.services.stage.yml",
                 "[web-root]/sites/default/default.settings.php": ".lando/assets/settings/default.settings.php",
-                "[web-root]/sites/default/default.settings.dev.php": ".lando/assets/settings/default.settings.dev.php",
                 "[web-root]/sites/default/default.settings.local.php": ".lando/assets/settings/default.settings.local.php",
                 "[web-root]/sites/default/default.settings.prod.php": ".lando/assets/settings/default.settings.prod.php",
                 "[web-root]/sites/default/default.settings.stage.php": ".lando/assets/settings/default.settings.stage.php"
@@ -86,20 +82,8 @@
             "web/profiles/custom/{$name}": ["type:drupal-custom-profile"],
             "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
         },
-        "drupal-core-project-message": {
-            "include-keys": ["homepage", "support"],
-            "post-create-project-cmd-message": [
-                "<bg=blue;fg=white>                                                         </>",
-                "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
-                "<bg=blue;fg=white>  from the nketchum/recommended-project template!        </>",
-                "<bg=blue;fg=white>                                                         </>",
-                "",
-                "<bg=yellow;fg=black>Next steps</>:",
-
-                "  * Install the site: https://www.drupal.org/docs/installing-drupal",
-                "  * Remove the plugin that prints this message:",
-                "      composer remove drupal/core-project-message"
-            ]
-        }
+        "patches": {  },
+        "patches-ignore": {  },
+        "composer-exit-on-patch-failure": false
     }
 }
