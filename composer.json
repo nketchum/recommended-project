@@ -38,7 +38,8 @@
             "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "mglaman/composer-drupal-lenient": true
         },
         "preferred-install": {
             "drupal/core": "dist"
